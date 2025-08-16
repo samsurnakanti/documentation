@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elldy BI Documentation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      height: 100vh;
+      width: 280px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #ffffff;
+      border-right: 1px solid #dee2e6;
+      padding-top: 1rem;
+      overflow-y: auto;
+    }
+    .sidebar .nav-link {
+      color: #333;
+      font-weight: 500;
+      border-radius: 8px;
+      margin: 2px 0;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sidebar .nav-link:hover {
+      background-color: #f1f3f5;
+      color: #0d6efd;
+    }
+    .sidebar .nav-link.active {
+      background-color: #0d6efd;
+      color: #fff !important;
+    }
+    .sidebar .nav-link.active i {
+      color: #fff !important;
+    }
+    .sidebar .nav-link i {
+      margin-right: 8px;
+      color: #6c757d;
+    }
+    .content {
+      margin-left: 300px;
+      padding: 2rem;
+    }
+    /* Highlight parent when child is active */
+    .nav-item.show > .nav-link {
+      background-color: #e9f2ff;
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar p-3">
+    <h4 class="mb-4 text-primary"><i class="bi bi-journal-text"></i> Elldy BI Docs</h4>
+
+    <ul class="nav flex-column">
+
+      <!-- Overview -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#overviewMenu" role="button">
+          <span><i class="bi bi-info-circle"></i> Overview</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse show" id="overviewMenu">
+          <a class="nav-link active ps-4" href="#">What is Elldy BI?</a>
+          <a class="nav-link ps-4" href="#">Key Features</a>
+          <a class="nav-link ps-4" href="#">Workflow Overview</a>
+        </div>
+      </li>
+
+      <!-- Basket -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#basketMenu" role="button">
+          <span><i class="bi bi-basket"></i> Basket</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="basketMenu">
+          <a class="nav-link ps-4" href="#">Create Basket</a>
+          <a class="nav-link ps-4" href="#">View Basket</a>
+          <a class="nav-link ps-4" href="#">Add Business</a>
+          <a class="nav-link ps-4" href="#">Add Department</a>
+        </div>
+      </li>
+
+      <!-- Import Datasets -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#datasetsMenu" role="button">
+          <span><i class="bi bi-database"></i> Import Datasets</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="datasetsMenu">
+          <a class="nav-link ps-4" href="#">Import Dataset</a>
+          <a class="nav-link ps-4" href="#">View Dataset Data</a>
+          <a class="nav-link ps-4" href="#">View Dataset Summary</a>
+          <a class="nav-link ps-4" href="#">Activities Log</a>
+          <a class="nav-link ps-4" href="#">Ready for Analysis</a>
+        </div>
+      </li>
+
+      <!-- Master Screen -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#masterMenu" role="button">
+          <span><i class="bi bi-grid-1x2"></i> Master Screen</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="masterMenu">
+          <a class="nav-link ps-4" href="#">Create Master Screen</a>
+          <a class="nav-link ps-4" href="#">View Master Screen</a>
+          <a class="nav-link ps-4" href="#">Auto KPIs</a>
+        </div>
+      </li>
+
+      <!-- Screen -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#screenMenu" role="button">
+          <span><i class="bi bi-window"></i> Screen</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="screenMenu">
+          <a class="nav-link ps-4" href="#">Create Screen</a>
+        </div>
+      </li>
+
+      <!-- Analysis -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#analysisMenu" role="button">
+          <span><i class="bi bi-bar-chart-line"></i> Analysis</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="analysisMenu">
+          <a class="nav-link ps-4" href="#">Analysis Process</a>
+          <a class="nav-link ps-4" href="#">Adding Charts</a>
+        </div>
+      </li>
+
+      <!-- Operations -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#operationsMenu" role="button">
+          <span><i class="bi bi-gear"></i> Operations</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="operationsMenu">
+          <a class="nav-link ps-4" href="#">Quick Stats</a>
+          <a class="nav-link ps-4" href="#">Grouping</a>
+          <a class="nav-link ps-4" href="#">Trend Analysis</a>
+          <a class="nav-link ps-4" href="#">Comparative Analysis</a>
+          <a class="nav-link ps-4" href="#">Correlation Analysis</a>
+          <a class="nav-link ps-4" href="#">AI Insights</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <h2>Welcome to Elldy BI Documentation</h2>
+    <p>Select an item from the sidebar to get started.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Auto-highlight active link
+    const links = document.querySelectorAll('.sidebar .nav-link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
