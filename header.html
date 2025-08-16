@@ -1,0 +1,110 @@
+{% load static %}
+<style>
+  #mainHeader.scrolled, #mainNavbar.scrolled {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+</style>
+<!-- Header -->
+<nav id="mainHeader" class="navbar navbar-expand-lg gradient-header text-white">
+  <div class="container-fluid px-4 d-flex justify-content-between align-items-center">
+    <div class="d-none d-lg-block" style="width: 150px;"></div>
+
+    <a class="navbar-brand mx-auto text-white" href="#">
+      <img src="{% static 'myapp/assets/elldy-logo.png' %}" width="150" height="60" alt="Logo"
+        class="d-block mx-auto border rounded" />
+    </a>
+  </div>
+</nav>
+
+<!-- Navigation Bar -->
+<nav id="mainNavbar" class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container-fluid px-4">
+    <!-- Logo inside navbar (hidden by default) -->
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'myapp/assets/elldy-logo.png' %}" width="120" alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarItems">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-2">
+          <a class="nav-link custom-link" href="{%url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link custom-link" href="{% url 'view-baskets' %}">Baskets</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link custom-link" href="{% url 'view_files' %}">Data</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link custom-link" href="{% url 'dataset-onboarding' %}">Onboard Data</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link custom-link" href="{% url 'view-master-screens' %}">Screens</a>
+        </li>
+
+       <!----<li class="nav-item dropdown mx-2 hover-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <b>Tools</b>
+          </a>
+          <ul class="dropdown-menu animate__animated animate__fadeIn">
+            <li><a class="dropdown-item fs-6" href="#"><i class="bi bi-database me-2"></i>Data Cleaning</a></li>
+            <li><a class="dropdown-item fs-6" href="#"><i class="bi bi-arrow-repeat me-2"></i>Data Transforming</a></li>
+            <li><a class="dropdown-item fs-6" href="#"><i class="bi bi-diagram-3 me-2"></i>Data Modeling</a></li>
+            <li><a class="dropdown-item fs-6" href="#"><i class="bi bi-bar-chart-line me-2"></i>Descriptive Analytics</a></li>
+            <li><a class="dropdown-item fs-6" href="#"><i class="bi bi-graph-up-arrow me-2"></i>Predictive Analytics</a></li>
+          </ul>
+        </li>--->
+
+<li class="nav-item mx-2">
+  {% if request.is_team_member %}
+    <a class="nav-link custom-link" href="{% url 'profile' %}">Settings</a>
+  {% else %}
+    <a class="nav-link custom-link" href="{% url 'business-setting' %}">Settings</a>
+  {% endif %}
+</li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<script>
+let ticking = false;
+const header = document.getElementById('mainHeader');
+const navbar = document.getElementById('mainNavbar');
+const scrollThreshold = 300; // now needs 100px before triggering
+
+function onScroll() {
+  const currentY = window.scrollY;
+
+  if (currentY > scrollThreshold) {
+    if (!header.classList.contains('scrolled')) {
+      header.classList.add('scrolled');
+      navbar.classList.add('scrolled');
+    }
+  } else {
+    if (header.classList.contains('scrolled')) {
+      header.classList.remove('scrolled');
+      navbar.classList.remove('scrolled');
+    }
+  }
+
+  ticking = false;
+}
+
+window.addEventListener('scroll', function () {
+  if (!ticking) {
+    window.requestAnimationFrame(onScroll);
+    ticking = true;
+  }
+});
+</script>
+
+
+
