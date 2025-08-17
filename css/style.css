@@ -260,4 +260,80 @@ b, strong {
       background: #f8f9fa;
       padding: 60px 0;
     }
-  
+
+    /* Sidebar */
+.sidebar {
+  height: 100vh;
+  width: 280px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-right: 1px solid #dee2e6;
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 1000;
+  font-size: 1.1rem; /* ⬅️ Base sidebar font size */
+}
+
+/* Sidebar links */
+.sidebar .nav-link {
+  color: #333;
+  font-weight: 500;
+  font-size: 1.15rem;  /* ⬅️ Increased font size */
+  border-radius: 8px;
+  margin: 2px 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #f1f3f5;
+  color: #0d6efd;
+}
+
+.sidebar .nav-link.active {
+  background-color: #0d6efd;
+  color: #fff !important;
+}
+
+.sidebar .nav-link.active i {
+  color: #fff !important;
+}
+
+.sidebar .nav-link i {
+  margin-right: 8px;
+  color: #6c757d;
+  font-size: 1.2rem; /* ⬅️ Make icons slightly larger too */
+}
+
+/* Content */
+.content {
+  margin-left: 300px;
+  padding: 2rem;
+  font-size: 1rem;      /* slightly reduced */
+  line-height: 1.8;     /* added more vertical spacing */
+}
+
+/* Headings */
+.content h2 {
+  font-size: 1.8rem;    /* reduced a bit */
+  margin-bottom: 1rem;  /* spacing after heading */
+}
+.content h4 {
+  font-size: 1.3rem;    /* reduced slightly */
+  margin-bottom: 0.8rem;
+}
+
+/* Paragraphs */
+.content p,
+.content li {
+  font-size: 1.05rem;   /* slightly smaller */
+  margin-bottom: 0.8rem; /* space between lines/paragraphs */
+}
+
+/* Alerts */
+.content .alert {
+  font-size: 1rem;
+  line-height: 1.6;
+}

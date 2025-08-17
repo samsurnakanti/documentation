@@ -12,91 +12,26 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <!-- FontAwesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <!-- Add these in your <head> -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-      {% load static %}
-    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
 
-  <style>
-
-
-    .text-gradient {
-      font-size: 24px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #1cb5e0, #000851);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .card-effect {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #fff;
-      position: relative;
-    }
-
-    .card-effect:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-bg-glow {
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0, 123, 255, 0.2), transparent 70%);
-      opacity: 0.4;
-      z-index: 1;
-    }
-
-    .card-effect h5 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #0d1a26;
-    }
-
-    .card-effect p {
-      font-size: 0.95rem;
-      color: #6c757d;
-    }
-
-    .card-effect a {
-      font-weight: bold;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .card-effect a:hover {
-      color: #0a58ca;
-    }
-  </style>
-
-
-
-
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
 
 
 </head>
 
-<body>
+<body style="font-family: 'Inter', sans-serif;">
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(to right, #5de0e6, #004aad);">
     <div class="container-fluid px-4">
       <!-- Logo -->
       <a class="navbar-brand fw-bold text-white" href="#">
-        <img src="{% static 'myapp/assets/elldy-logo.png' %}" width="130px" class="img-fluid  rounded" alt="Elldy Logo">
+        <img src="assets/elldy-logo.png" width="130" class="img-fluid rounded" alt="Elldy Logo">
       </a>
 
       <!-- Toggle button for mobile -->
@@ -104,163 +39,1638 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Nav links and buttons -->
+      <!-- Nav links -->
       <div class="collapse navbar-collapse justify-content-between" id="nav">
-        <!-- Centered nav links -->
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="{%url 'home_website'%}">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="{%url 'about'%}">About Us</a></li>
-          <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="{%url 'pricing'%}">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="{% url 'home_website' %}">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="{% url 'about' %}">About Us</a>
+          </li>
+          <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="{% url 'pricing' %}">Pricing</a>
+          </li>
         </ul>
 
         <!-- Login & Signup -->
         <div class="d-flex">
-          <a href="{%url 'login'%}" class="btn btn-outline-light me-2">Login</a>
-          <a href="{%url 'signup'%}" class="btn btn-light text-primary fw-bold">Signup</a>
+          <a href="{% url 'login' %}" class="btn btn-outline-light me-2">Login</a>
+          <a href="{% url 'signup' %}" class="btn btn-light text-primary fw-bold">Signup</a>
         </div>
       </div>
     </div>
   </nav>
 
-    <!-- About Us Section -->
-<!-- About Us Section -->
-<section id="about-us" class="py-5 bg-light">
-  <div class="container">
-    <div class="row justify-content-center" data-aos="fade-up">
-      <div class="col-lg-10">
-<h2 class="fw-bold mb-4 text-center text-black" style="font-size: 1.75rem;">
-  Empowering Data • Simplifying Intelligence
-</h2>
+  <!-- Sidebar -->
+  <div class="sidebar p-3 mt-3">
+    <h4 class="mb-4 text-primary"><i class="bi bi-journal-text"></i> Elldy BI Docs</h4>
 
+    <ul class="nav flex-column">
 
-        <p class="text-muted mb-3" style="font-size: 0.95rem;">
-          <strong>Elldy</strong> is an AI-powered Business Intelligence platform built to streamline your entire data journey — from messy raw datasets to meaningful insights and visual dashboards.
-          We automate complex processes like cleaning, structuring, and transforming your data, enabling you to focus on decision-making, not data wrangling.
-        </p>
-
-        <p class="text-muted mb-3" style="font-size: 0.95rem;">
-          Whether you're a business analyst, data scientist, or strategic decision-maker, Elldy offers a powerful yet intuitive experience for discovering insights, visualizing KPIs, and delivering real-time dashboards — without writing a single line of code.
-        </p>
-
-        <ul class="list-unstyled text-muted mb-4" style="font-size: 0.95rem;">
-          <li class="mb-2"><span class="badge bg-success me-2">✓</span> Automated Data Preparation & Cleansing</li>
-          <li class="mb-2"><span class="badge bg-warning text-dark me-2">✓</span> Instant Analysis and Live Dashboards</li>
-          <li class="mb-2"><span class="badge bg-danger me-2">✓</span> Smart AI Insights, Forecasts & Anomaly Detection</li>
-        </ul>
-
-        <div class="p-3 bg-white shadow-sm rounded border-start border-4 border-success mb-4">
-          <p class="mb-0 text-dark fw-semibold" style="font-size: 0.95rem;">
-            Whether you're tracking performance, forecasting trends, or analyzing business health — Elldy gives you the clarity, automation, and speed you need in one intelligent platform.
-          </p>
+      <!-- Overview -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          href="#overviewMenu">
+          <span><i class="bi bi-info-circle"></i> Overview</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse show" id="overviewMenu">
+          <ul class="nav flex-column ms-3">
+            <li><a class="nav-link active" data-content="whatIs" href="#">What is Elldy BI?</a></li>
+            <li><a class="nav-link" data-content="features" href="#">Key Features</a></li>
+            <li><a class="nav-link" data-content="workflow" href="#">Workflow Overview</a></li>
+            <li><a class="nav-link" data-content="Variant" href="#">Variant</a></li>
+          </ul>
         </div>
+      </li>
 
-      </div>
-    </div>
+      <!-- Basket -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          href="#basketMenu">
+          <span><i class="bi bi-basket"></i> Basket</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="basketMenu">
+          <ul class="nav flex-column ms-3">
+            <li><a class="nav-link" data-content="createBasket" href="#">Create Basket</a></li>
+            <li><a class="nav-link" data-content="viewBasket" href="#">View Basket</a></li>
+            <li><a class="nav-link" data-content="addBusiness" href="#">Add Business</a></li>
+            <li><a class="nav-link" data-content="addDepartment" href="#">Add Department</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Import Datasets -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          href="#importMenu">
+          <span><i class="bi bi-cloud-arrow-up"></i> Import Datasets</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="importMenu">
+          <ul class="nav flex-column ms-3">
+            <li><a class="nav-link" data-content="importDataset" href="#">Import Dataset</a></li>
+            <li><a class="nav-link" data-content="viewDataset" href="#">View Dataset</a></li>
+            <li><a class="nav-link" data-content="dataSummary" href="#">Data Summary</a></li>
+
+          </ul>
+        </div>
+      </li>
+
+      <!-- Master Screen -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          href="#masterMenu">
+          <span><i class="bi bi-grid"></i> Master Screen</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="masterMenu">
+          <ul class="nav flex-column ms-3">
+            <li><a class="nav-link" data-content="createMaster" href="#">Create Master Screen</a></li>
+            <li><a class="nav-link" data-content="viewKPIs" href="#">View Auto KPIs</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Screen -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          href="#screenMenu">
+          <span><i class="bi bi-window"></i> Screen</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="screenMenu">
+          <ul class="nav flex-column ms-3">
+            <li><a class="nav-link" data-content="CreateScreen" href="#">Create Screen</a></li>
+            <li><a class="nav-link" data-content="addCharts" href="#">Add Charts</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Analysis Process -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          href="#analysisMenu">
+          <span><i class="bi bi-graph-up"></i> Analysis Process</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="analysisMenu">
+          <ul class="nav flex-column ms-3">
+            <li><a class="nav-link" data-content="analysisOverview" href="#">Overview</a></li>
+            <li><a class="nav-link" data-content="analysisSteps" href="#">Steps</a></li>
+            <li><a class="nav-link" data-content="analysisFlexifilter" href="#">FlexiFiliter</a></li>
+
+          </ul>
+        </div>
+      </li>
+
+      <!-- Operations -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          href="#operationsMenu">
+          <span><i class="bi bi-tools"></i> Operations</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse" id="operationsMenu">
+          <ul class="nav flex-column ms-3">
+            <li><a class="nav-link" data-content="quickStats" href="#">Quick Stats</a></li>
+            <li><a class="nav-link" data-content="grouping" href="#">Grouping</a></li>
+            <li><a class="nav-link" data-content="trendAnalysis" href="#">Trend Analysis</a></li>
+            <li><a class="nav-link" data-content="comparativeAnalysis" href="#">Comparative Analysis</a></li>
+            <li><a class="nav-link" data-content="correlationAnalysis" href="#">Correlation Analysis</a></li>
+            <li><a class="nav-link" data-content="aiInsights" href="#">AI Insights</a></li>
+          </ul>
+        </div>
+      </li>
+
+
+
+
+
+
+    </ul>
   </div>
-</section>
 
+  <!-- Content Area -->
+  <div class="content">
+    <!-- What is Elldy BI -->
+    <div id="whatIs" class="page-content">
+      <h2 class="mb-3 text-primary"><i class="bi bi-info-circle"></i> What is Elldy BI & DI?</h2>
+      <p class="lead">
+        <strong>Elldy </strong> is a modern, cloud-based Business Intelligence (BI) and Data Intelligence (DI)
+        platform
+        designed to help organizations not only visualize their data but also understand, interpret, and act on it with
+        intelligence.
+      </p>
 
+      <p>
+        Unlike traditional BI tools that stop at charts and dashboards, Elldy combines
+        <strong>BI (analytics & visualization)</strong> with
+        <strong>DI (automation, intelligence & recommendations)</strong> — giving you a complete solution to turn raw
+        data into decisions.
+      </p>
 
-<!-- FOOTER -->
-<footer class="text-white pt-5 pb-4" style="background: linear-gradient(135deg, #1b1f2a, #10131a);">
-  <div class="container">
-    <div class="row gy-4" data-aos="fade-up">
+      <h4 class="mt-4">🌐 Cloud-Based, Secure & Scalable</h4>
+      <p>
+        Being fully <strong>cloud-native</strong>, Elldy eliminates infrastructure complexity.
+        You can access data, dashboards, and insights securely from any browser, anytime, anywhere —
+        and scale effortlessly as your business grows.
+      </p>
 
-      <!-- Column 1: Logo & About -->
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex align-items-center mb-3">
-          <img src="{% static 'myapp/assets/elldy-logo.png' %}" alt="Elldy Logo"
-               class="img-fluid me-2" style="width: 150px;">
-        </div>
-        <p class="text-light opacity-75">
-          Elldy BI is your AI-powered partner for transforming raw data into strategic business insights. 
-          Seamless, secure, and scalable — built for the modern analyst.
-        </p>
+      <h4 class="mt-4">⚡ Smart Automation + Data Intelligence</h4>
+      <ul>
+        <li><strong>Data Import & Cleaning:</strong> Detect, clean, and standardize datasets automatically.</li>
+        <li><strong>Data Transformation:</strong> Convert raw data into ready-to-analyze formats with ease.</li>
+        <li><strong>Auto KPIs & Dashboards:</strong> Instantly generate metrics and dashboards with Master Screens.</li>
+        <li><strong>Advanced Analytics:</strong> Apply operations like grouping, forecasting, anomaly detection,
+          correlation, and AI-driven insights.</li>
+        <li><strong>Data Intelligence Layer:</strong> Beyond reporting, Elldy interprets data patterns, highlights
+          anomalies, and suggests actions.</li>
+        <li><strong>Collaboration Ready:</strong> Share dashboards securely with teams or publicly with one click.</li>
+      </ul>
+
+      <h4 class="mt-4">🚀 Why Choose Elldy BI + DI?</h4>
+      <ol>
+        <li>Organize data with baskets (business & department wise).</li>
+        <li>Automate dataset cleaning and transformation without coding.</li>
+        <li>Generate dashboards, KPIs, and forecasts instantly.</li>
+        <li>Apply predictive and prescriptive analytics with minimal effort.</li>
+        <li>Get intelligent recommendations from your data — not just visualizations.</li>
+      </ol>
+
+      <div class="alert alert-success mt-4">
+        ✅ With Elldy, your data is not only visualized — it’s <strong>understood, explained, and transformed into
+          intelligent decisions.</strong>
       </div>
-
-      <!-- Column 2: Quick Links -->
-      <div class="col-lg-2 col-md-6">
-        <h6 class="fw-bold text-uppercase text-warning mb-3">Quick Links</h6>
-        <ul class="list-unstyled footer-links">
-          <li><a href="{% url 'home_website'%}">Home</a></li>
-          <li><a href="{%url 'about'%}">About</a></li>
-          <li><a href="{%url 'pricing'%}">Pricing</a></li>
-          <li><a href="{%url 'contact'%}">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 3: Legal -->
-      <div class="col-lg-3 col-md-6">
-        <h6 class="fw-bold text-uppercase text-warning mb-3">Legal</h6>
-        <ul class="list-unstyled footer-links">
-          <li><a href="{%url 'terms'%}">Terms of Use</a></li>
-          <li><a href="{%url 'privacy'%}">Privacy Policy</a></li>
-          <li><a href="{%url 'security'%}">Data Security</a></li>
-          <li><a href="{%url 'refund'%}">Refund & Cancellation</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 4: Contact -->
-      <div class="col-lg-3 col-md-6">
-        <h6 class="fw-bold text-uppercase text-warning mb-3">Contact</h6>
-        <ul class="list-unstyled text-light opacity-75">
-          <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> info@arklytics.in</li>
-          <li class="mb-2"><i class="fas fa-globe me-2 text-primary"></i> arklytics.in</li>
-          <li class="mb-2"><i class="fas fa-globe me-2 text-primary"></i> elldy.com</li>
-        </ul>
-        <!-- Social Media -->
-        <div class="mt-3">
-          <a href="#" class="text-light fs-5 me-3"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="text-light fs-5 me-3"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-light fs-5"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Divider -->
-    <hr class="border-light opacity-25 mt-4" />
 
-    <!-- Bottom Note -->
-    <div class="text-center">
-      <p class="mb-0 text-light opacity-75 small">
-        © 2025 <strong>elldy.com</strong> — All Rights Reserved | Launched by <strong>Arklytics Solutions & Innovations</strong>
+    <!-- Other sections -->
+    <div id="features" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-lightning"></i> Key Features</h2>
+
+      <p class="lead">
+        Elldy BI offers a comprehensive suite of features to empower businesses with faster, smarter,
+        and more reliable insights.
+      </p>
+
+      <ul>
+        <li><strong>Basket System:</strong> Organize your data by business and department for structured analysis.</li>
+        <li><strong>Smart Dataset Import:</strong> Upload Excel/CSV files with automatic cleaning, validation, and
+          transformation.</li>
+        <li><strong>Master Screens:</strong> Generate KPIs and dashboards instantly with no manual configuration.</li>
+        <li><strong>Custom Screens:</strong> Build interactive analysis screens with charts, tables, and advanced
+          visualizations.</li>
+        <li><strong>Advanced Operations:</strong> Perform quick stats, grouping, trend analysis, correlation, and
+          AI-driven insights effortlessly.</li>
+        <li><strong>Automation & Alerts:</strong> Automate recurring data processes and get actionable alerts.</li>
+        <li><strong>Collaboration & Sharing:</strong> Securely share dashboards with teams or publicly for wider access.
+        </li>
+        <li><strong>Cloud-Ready:</strong> Access your data and analytics anywhere, anytime, without infrastructure
+          overhead.</li>
+      </ul>
+
+      <div class="alert alert-info mt-4">
+        💡 Elldy BI is designed for both beginners and advanced users, providing professional tools to analyze,
+        visualize, and act on data efficiently.
+      </div>
+    </div>
+
+    <div id="workflow" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-diagram-3"></i> Workflow Overview</h2>
+
+      <p class="lead">
+        Elldy BI follows an intuitive workflow to help users organize, analyze, and visualize data with minimal effort.
+      </p>
+
+      <ol>
+        <li>
+          <strong>Create Basket:</strong> Set up business units and departments to organize datasets efficiently.
+        </li>
+        <li>
+          <strong>Import Dataset:</strong> Upload Excel/CSV files; Elldy BI automatically cleans, validates, and
+          transforms data.
+        </li>
+        <li>
+          <strong>View Dataset:</strong> Preview and explore data, detect anomalies, and prepare it for analysis.
+        </li>
+        <li>
+          <strong>Master Screens:</strong> Automatically generate KPIs and dashboards for key metrics and performance
+          tracking.
+        </li>
+        <li>
+          <strong>Create Screens:</strong> Build custom analysis screens with interactive charts, tables, and visual
+          components.
+        </li>
+        <li>
+          <strong>Apply Operations:</strong> Perform advanced operations like trend analysis, comparative studies,
+          correlation checks, and AI insights.
+        </li>
+        <li>
+          <strong>Share & Collaborate:</strong> Distribute dashboards securely across teams or publicly to drive
+          data-driven decisions.
+        </li>
+      </ol>
+
+      <div class="alert alert-success mt-4">
+        🚀 This workflow ensures your business data is always clean, actionable, and ready for professional analysis.
+      </div>
+    </div>
+
+    <div id="Variant" class="page-content d-none ">
+      <h2 class="mb-3 text-primary"><i class="bi bi-rocket-takeoff"></i> Elldy Variant 1 – Launch Announcement</h2>
+
+      <h4 class="mt-4">🚀 Overview</h4>
+      <p>
+        <strong>Elldy</strong> proudly announces the launch of <strong>Variant 1</strong>, our first and most advanced
+        release.
+        Designed to seamlessly combine <strong>Business Intelligence (BI)</strong> and <strong>Data Intelligence
+          (DI)</strong>,
+        this variant empowers organizations to transform raw data into actionable insights faster than ever before.
+      </p>
+
+      <h4 class="mt-4">✨ Key Highlights</h4>
+      <ul>
+        <li><strong>Unified BI & DI</strong> – A single platform to manage, analyze, and visualize data.</li>
+        <li><strong>AI-Powered Intelligence</strong> – Automated insights, anomaly detection, and forecasting.</li>
+        <li><strong>Real-Time Dashboards</strong> – Instant visualization of KPIs and trends.</li>
+        <li><strong>Simplified Data Journey</strong> – From raw datasets to meaningful intelligence without coding.</li>
+      </ul>
+
+      <h4 class="mt-4">🔮 Future Vision</h4>
+      <p>
+        Variant 1 is just the beginning. Our R&D division is actively working on future variants,
+        exploring next-generation technologies that will further expand Elldy’s capabilities in
+        <strong>AI, automation, and decision intelligence</strong>.
+      </p>
+
+      <h4 class="mt-4">💡 Why It Matters</h4>
+      <ul>
+        <li>Track performance in real-time.</li>
+        <li>Forecast trends with AI-driven accuracy.</li>
+        <li>Simplify complex data analysis into clear decision-making.</li>
+      </ul>
+
+      <div class="alert alert-info mt-4 text-center fw-bold">
+        ✅ Empowering Data • Simplifying Intelligence
+        <br>Elldy continues its mission to redefine how organizations harness data for smarter decisions.
+      </div>
+    </div>
+
+
+    <div id="createBasket" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-basket"></i> Basket & Data Management</h2>
+
+      <p>In <strong>Elldy BI</strong>, Baskets are like smart folders that hold your datasets. You can upload, organize,
+        and manage multiple datasets within each basket, making it easier to analyze and create dashboards.</p>
+
+      <h4>📝 What is a Basket?</h4>
+      <p>A <strong>Basket</strong> is a container for grouping datasets. Think of it as a project folder that keeps
+        related CSV/Excel files together.</p>
+
+      <p><strong>Example use cases:</strong></p>
+      <ul>
+        <li><strong>Sales Basket</strong> → Upload monthly sales data across different regions.</li>
+        <li><strong>HR Basket</strong> → Manage employee, attendance, and performance data.</li>
+        <li><strong>Finance Basket</strong> → Keep balance sheets, transactions, and forecasts.</li>
+      </ul>
+
+      <h4>⚡ Steps to Use Baskets</h4>
+      <ol>
+        <li><strong>Create a Basket</strong>
+          <ul>
+            <li>Navigate to the Basket Management page.</li>
+            <li>Click <em>Create Basket</em>.</li>
+            <li>Enter a Basket Name (e.g., "Sales 2025").</li>
+            <li>Add an optional description.</li>
+          </ul>
+          ✅ Your basket is now ready to hold datasets.
+        </li>
+
+        <li><strong>Add Data to a Basket</strong>
+          <ul>
+            <li>Inside the selected basket, click <em>Add Data</em>.</li>
+            <li>Upload your CSV or Excel file.</li>
+            <li>Elldy BI automatically validates headers, detects data types, and prepares it for analysis.</li>
+            <li>You can upload multiple datasets into the same basket.</li>
+          </ul>
+        </li>
+
+        <li><strong>Actions on Baskets</strong>
+          <ul>
+            <li><strong>View Details</strong> → See all datasets inside the basket.</li>
+            <li><strong>Upload More Data</strong> → Add additional files anytime.</li>
+            <li><strong>Delete Basket</strong> → Remove the entire basket and its datasets.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h4>🔎 Example Workflow</h4>
+      <p>
+        <strong>Create Basket</strong> → "E-commerce Sales"<br>
+        <strong>Upload Files</strong> → sales_jan.csv, sales_feb.csv, sales_march.csv<br>
+        <strong>View Basket</strong> → Check uploaded files.<br>
+        <strong>Run Analysis</strong> → Apply operations (Group By, Trend, AI Insights) on selected datasets.
+      </p>
+
+      <h4>📊 Visualization Ready</h4>
+      <p>
+        Once data is added to a basket:
+      </p>
+      <ul>
+        <li>You can immediately start charting (bar, line, pie, scatter, etc.).</li>
+        <li>Apply operations like Sum, Mean, Trend, Forecast, or AI Insights.</li>
+        <li>Use the data in Dashboards & Reports.</li>
+      </ul>
+
+      <p>✅ <strong>Pro Tip:</strong> Organize baskets by department or project. For example:</p>
+      <ul>
+        <li><strong>Marketing Basket</strong> → Campaign results</li>
+        <li><strong>Finance Basket</strong> → Expense reports</li>
+        <li><strong>Supply Chain Basket</strong> → Inventory & logistics</li>
+      </ul>
+    </div>
+
+
+    <div id="viewBasket" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-eye"></i> View Basket</h2>
+
+      <p class="lead">
+        A <strong>Basket</strong> helps you save and organize your uploaded datasets in one place.
+        You can create separate baskets like <em>“Q1-Sales Basket”</em> or <em>“Marketing Insights”</em>
+        to manage your data more efficiently. This makes it easier to find and work with specific datasets later.
+      </p>
+
+      <div class="alert alert-info mt-3">
+        💡 All your saved datasets are available under the <strong>View Baskets</strong> section for quick access and
+        management.
+      </div>
+
+      <h4 class="mt-4">📂 How to View Baskets</h4>
+      <ol>
+        <li>Click <em>View Basket</em> from the sidebar menu.</li>
+        <li>Browse the list of all created baskets.</li>
+        <li>Select a basket to see its details such as name, business info, and assigned departments.</li>
+        <li>You can add new datasets to the basket, view files inside it, or delete the basket if not needed.</li>
+      </ol>
+
+      <div class="alert alert-success mt-3">
+        ✅ Use <strong>View Basket</strong> to keep your datasets organized, easy to find, and ready for analysis
+        anytime.
+      </div>
+    </div>
+
+    <div id="addBusiness" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-building"></i> Add Business</h2>
+
+      <p class="lead">
+        Adding a <strong>Business</strong> allows you to organize your datasets under different companies or
+        departments.
+        For example, you can create separate businesses like <em>“Global Tech Pvt Ltd”</em> or <em>“Marketing Insights
+          Hub”</em>
+        to manage data more efficiently.
+      </p>
+
+      <h4 class="mt-4">🏢 How to Add a Business</h4>
+      <ol>
+        <li>Go to <strong>Settings → Business Setup</strong> from the sidebar.</li>
+        <li>Click <em>Add Business</em>.</li>
+        <li>Enter business details such as:
+          <ul>
+            <li><strong>Business Name</strong> – e.g., <em>FinSmart Analytics</em>, <em>EduWave Solutions</em>,
+              <em>GreenMart Retail</em>
+            </li>
+            <li><strong>Business Contact</strong> – e.g., <em>9876543210</em>, <em>9123456789</em></li>
+            <li><strong>Business Address</strong> – e.g., <em>Bangalore, India</em>, <em>New York, USA</em></li>
+          </ul>
+        </li>
+        <li>Enter <strong>Admin Info</strong>:
+          <ul>
+            <li><strong>Admin Name</strong> – e.g., <em>Ravi Kumar</em>, <em>Anita Sharma</em>, <em>John Smith</em></li>
+            <li><strong>Admin Contact</strong> – e.g., <em>9812345678</em>, <em>9500012345</em></li>
+            <li><strong>Admin Email</strong> (optional) – e.g., <em>ravi.kumar@finsmart.com</em>,
+              <em>anita@eduwave.org</em>
+            </li>
+          </ul>
+        </li>
+        <li>Click <strong>Save</strong> to complete setup.</li>
+      </ol>
+
+      <div class="alert alert-info mt-3">
+        💡 Once a business is added, you can use it while creating or viewing baskets.
+      </div>
+
+
+
+      <div class="alert alert-success mt-3">
+        ✅ If you don’t see your business in <strong>View Basket</strong>, first add it here under <strong>Settings →
+          Business Setup</strong>.
+      </div>
+    </div>
+
+    <div id="addDepartment" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-diagram-3"></i> Add Department</h2>
+
+      <p class="lead">
+        Adding a <strong>Department</strong> helps you organize datasets within a specific business into smaller
+        units or branches.
+        For example, you can create departments like <em>“Sales”</em>, <em>“Finance”</em>, or
+        <em>“Research & Development”</em> under a business for better management.
+      </p>
+
+      <h4 class="mt-4">🏢 How to Add a Department</h4>
+      <ol>
+        <li>Go to <strong>Settings → Add Department</strong> from the sidebar.</li>
+        <li>Click <em>Add Department</em>.</li>
+        <li>Select the <strong>Business</strong> to which the department belongs.</li>
+        <li>Enter department details such as:
+          <ul>
+            <li><strong>Department Name</strong> – e.g., <em>Marketing</em>, <em>Human Resources</em>, <em>IT
+                Support</em></li>
+            <li><strong>Status</strong> – Active / Inactive</li>
+          </ul>
+        </li>
+        <li>Click <strong>Save</strong> to complete setup.</li>
+      </ol>
+
+      <div class="alert alert-info mt-3">
+        💡 Once a department is added, it will be available for selection while uploading datasets.
+      </div>
+
+      <div class="alert alert-success mt-3">
+        ✅ If you don’t see your department while uploading a dataset, first add it here under
+        <strong>Settings → Add Department</strong>.
+      </div>
+    </div>
+
+    <div id="importDataset" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-upload"></i> Import Dataset</h2>
+
+      <p class="lead">
+        Once your dataset is uploaded, the next step is to <strong>import it</strong> into Elldy for analysis.
+        Importing prepares the data for dashboards, reports, and insights.
+      </p>
+
+      <h4 class="mt-4">📥 How to Import a Dataset</h4>
+      <ol>
+        <li>Go to <strong>Data → Import Dataset</strong> from the sidebar.</li>
+        <li>Click <em>Import Dataset</em>.</li>
+        <li>Select the <strong>Department</strong> where the dataset belongs.</li>
+        <li>Provide the required details:
+          <ul>
+            <li><strong>Date</strong> – e.g., <em>17-08-2025</em></li>
+            <li><strong>Title</strong> – e.g., <em>Q2 Sales Report</em>, <em>Customer Feedback 2025</em></li>
+            <li><strong>Dataset File</strong> – choose your CSV or Excel file</li>
+          </ul>
+        </li>
+        <li>Click <strong>Import</strong> to process the dataset.</li>
+      </ol>
+
+      <div class="alert alert-info mt-3">
+        💡 During import, Elldy automatically removes duplicates, fills missing values, detects dates, and assigns
+        proper data types.
+      </div>
+
+      <div class="alert alert-success mt-3">
+        ✅ After import, your dataset will appear in the <strong>Basket</strong> and will be ready for analysis.
+      </div>
+    </div>
+
+    <div id="viewDataset" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-collection"></i> View Datasets</h2>
+
+      <p class="lead">
+        Once a dataset is imported, it will appear in the <strong>View Datasets</strong> section.
+        From here, you can manage, analyze, and organize your datasets.
+      </p>
+
+      <h4 class="mt-4">📂 Actions Available</h4>
+      <ul>
+        <li><strong>Summary</strong> – View all transformation steps applied (duplicates removed, missing values filled,
+          etc.).</li>
+        <li><strong>View</strong> – See the final cleaned dataset after processing.</li>
+        <li><strong>Use</strong> – Confirm the dataset for analysis and move it to <em>Onboarded Datasets</em>.</li>
+        <li><strong>Delete</strong> – Remove unwanted datasets from the system.</li>
+        <li><strong>Merge</strong> – Combine multiple datasets into one for consolidated analysis.</li>
+      </ul>
+
+      <h4 class="mt-4">📂 Your Datasets</h4>
+      <p>
+        All uploaded datasets are listed here with their details such as:
+      </p>
+      <ul>
+        <li><strong>Basket</strong> – The business dataset group (e.g., <em>Air Quality</em>, <em>Amazon Sales</em>).
+        </li>
+        <li><strong>Department</strong> – The department under which the dataset was uploaded (e.g., <em>Analysis</em>,
+          <em>Marketing</em>).
+        </li>
+        <li><strong>Title</strong> – The descriptive title of the dataset (e.g., <em>Air Quality Index</em>, <em>Sales
+            Data</em>).</li>
+        <li><strong>Status</strong> – Current state (e.g., <em>Completed</em>, <em>Pending</em>).</li>
+        <li><strong>Actions</strong> – Available operations (Summary, View, Use, Delete, Merge).</li>
+      </ul>
+
+      <div class="alert alert-info mt-3">
+        💡 After import, datasets will automatically appear here. You can track their transformation, view cleaned
+        results, and prepare them for analysis.
+      </div>
+    </div>
+
+    <div id="dataSummary" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-bar-chart-line"></i> Data Cleaning Summary</h2>
+
+      <p class="lead">
+        Elldy provides a detailed <strong>Cleaning Summary</strong>.
+        This helps you understand the preprocessing applied before analysis.
+      </p>
+
+      <h4 class="mt-4">📊 Dataset Stats Overview</h4>
+      <ul>
+        <li><strong>Initial Rows</strong> – Total records before cleaning.</li>
+        <li><strong>Removed Duplicates</strong> – Duplicate rows eliminated.</li>
+        <li><strong>Removed Null Rows</strong> – Empty rows dropped.</li>
+        <li><strong>Date Conversions</strong> – Number of date values standardized.</li>
+        <li><strong>Missing Value Handling</strong> – Filled using <em>Mean</em>, <em>Median</em>, or <em>Mode</em>.
+        </li>
+        <li><strong>Precision Adjustments</strong> – Standardized decimal values for consistency.</li>
+      </ul>
+
+      <div class="alert alert-info mt-3">
+        💡 These preprocessing metrics ensure your dataset is clean, consistent, and ready for insights.
+      </div>
+
+      <h4 class="mt-4">🗓️ Date Column Transformations</h4>
+      <p>
+        Detected date columns can be transformed for time-based analysis:
+      </p>
+      <ul>
+        <li><strong>Remove</strong> – Exclude column from analysis.</li>
+        <li><strong>Split</strong> – Break into <em>Year, Month, Day</em>.</li>
+        <li><strong>Rename</strong> – Assign a custom column name.</li>
+      </ul>
+
+      <h4 class="mt-4">🔢 Datatype Enforcements</h4>
+      <p>
+        Elldy automatically infers column data types and enforces consistency:
+      </p>
+      <ul>
+        <li><strong>Numeric</strong> – Ensure valid integers or floats.</li>
+        <li><strong>Date</strong> – Detect and convert time-based columns.</li>
+        <li><strong>Categorical</strong> – Encode or rename categories.</li>
+      </ul>
+
+      <h4 class="mt-4">🧹 Additional Cleaning Checks</h4>
+      <ul>
+        <li><strong>Removed Invalid Numeric Values</strong> – Non-numeric entries skipped for clean calculations.</li>
+        <li><strong>Replaced Invalid Strings</strong> – Special characters or errors auto-corrected.</li>
+        <li><strong>Invalid Emails Cleaned</strong> – Wrong email formats blanked or replaced with placeholders.</li>
+      </ul>
+
+      <h4 class="mt-4">🛠️ Data Cleaning Activity Log</h4>
+      <p>
+        Every transformation applied to your dataset is recorded, such as:
+      </p>
+      <ul>
+        <li>Duplicates and nulls removed.</li>
+        <li>Date conversions applied.</li>
+        <li>Null values filled with median/mode.</li>
+        <li>Numeric and categorical type corrections.</li>
+        <li>Precision and format adjustments.</li>
+      </ul>
+
+      <h4 class="mt-4">📋 Data Transformation Activity</h4>
+      <p>
+        A detailed log of all preprocessing steps is available, giving you full visibility into changes:
+      </p>
+      <ul>
+        <li>Invalid values removed or replaced.</li>
+        <li>Data types standardized.</li>
+        <li>String and numeric formats cleaned.</li>
+        <li>Columns renamed, split, or encoded as needed.</li>
+      </ul>
+
+      <div class="alert alert-success mt-3">
+        ✅ This summary ensures transparency. You can trust that the data onboarded into Elldy is
+        consistent, accurate, and ready for analysis.
+      </div>
+    </div>
+
+    <div id="createMaster" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-layout-text-sidebar-reverse"></i> Master Screen</h2>
+
+      <p class="lead">
+        A <strong>Master Screen</strong> is your centralized place to save and organize key charts, KPIs, and insights
+        in one view.
+        Think of it as your <em>personalized dashboard</em> where all visual analysis related to a dataset lives.
+      </p>
+
+      <h4 class="mt-4">🎯 Why Use a Master Screen?</h4>
+      <ul>
+        <li>Quickly revisit insights without rebuilding charts.</li>
+        <li>Compare performance across periods or departments.</li>
+        <li>Track changes over time using saved KPIs.</li>
+        <li>Organize multiple datasets into different master dashboards.</li>
+      </ul>
+
+      <h4 class="mt-4">🛠️ How to Create a Master Screen</h4>
+      <ol>
+        <li>Go to <strong>Dashboard → Master Screen</strong> from the sidebar.</li>
+        <li>Click <em>Create Master Screen</em>.</li>
+        <li>Enter a <strong>Master Screen Name</strong> – e.g., <em>Q3 Sales Master</em>, <em>Customer Insights
+            2025</em>.</li>
+        <li>Select the <strong>Onboarded Dataset</strong> you want to link with this screen.</li>
+        <li>Click <strong>Save</strong> to create your Master Screen.</li>
+      </ol>
+
+      <h4 class="mt-4">📌 Example</h4>
+      <p>
+        If you are analyzing Q3 performance, you can create a Master Screen named
+        <em>"Q3-Sales Master"</em>.
+        All charts, KPIs, and insights related to Q3 sales will be stored in one place, making it easy to monitor and
+        compare results.
+      </p>
+
+      <div class="alert alert-info mt-3">
+        💡 You can create multiple Master Screens for different business areas, like <em>Marketing Performance</em>,
+        <em>Financial Health</em>, or <em>Customer Retention Trends</em>.
+      </div>
+
+      <div class="alert alert-success mt-3">
+        ✅ Once created, you can add charts, visualizations, and KPIs into your Master Screen for quick and ongoing
+        analysis.
+      </div>
+    </div>
+
+    <div id="viewKPIs" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-bar-chart-line"></i> Auto KPIs in Elldy BI + DI</h2>
+
+      <p class="lead">
+        Once you create a <strong>Master Screen</strong> in Elldy, the platform automatically analyzes your data and
+        generates
+        <strong>Key Performance Indicators (KPIs)</strong> tailored to your business needs.
+      </p>
+
+      <p>
+        These Auto KPIs save time, reduce manual effort, and provide immediate clarity on what truly matters. Instead of
+        digging into raw numbers, you instantly see ready-to-use metrics aligned with your datasets and business
+        context.
+      </p>
+
+      <h4 class="mt-4">🔑 How Auto KPIs Work</h4>
+      <ul>
+        <li><strong>Data Understanding:</strong> Elldy’s intelligence engine scans your dataset structure
+          (sales, profit, quantity, region, time period, etc.).</li>
+        <li><strong>KPI Identification:</strong> Relevant KPIs are generated automatically —
+          e.g., Total Sales, Average Profit Margin, Monthly Growth, Conversion Rate, Top 5 Products/Regions.</li>
+        <li><strong>Visualization:</strong> The KPIs are presented in easy-to-read cards and charts inside the Master
+          Screen.</li>
+        <li><strong>Dynamic Updates:</strong> As data changes or new datasets are imported, KPIs refresh automatically,
+          always keeping you updated.</li>
+      </ul>
+
+      <h4 class="mt-4">🌟 Benefits of Auto KPIs</h4>
+      <ul>
+        <li><strong>Instant Insights:</strong> No manual calculation or setup.</li>
+        <li><strong>Business-Focused Metrics:</strong> KPIs are intelligently chosen to match your industry and dataset.
+        </li>
+        <li><strong>Time-Saving:</strong> Get to decisions faster without spending hours defining measures.</li>
+        <li><strong>Consistency:</strong> Ensure every team looks at the same trusted metrics.</li>
+        <li><strong>Action-Oriented:</strong> Combine KPIs with advanced analytics (forecast, anomaly detection,
+          correlation) for decision-ready insights.</li>
+      </ul>
+
+      <p class="mt-3">
+        ✅ With Auto KPIs, Elldy transforms your Master Screen into a powerful command center —
+        giving you the pulse of your business at a glance.
       </p>
     </div>
+
+    <div id="CreateScreen" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-journal-plus"></i> Create Screen</h2>
+      <p>
+        Follow these steps to create a new <strong>Screen</strong> under your selected <strong>Master Screen</strong>.
+      </p>
+
+      <h4 class="mt-4">📝 Steps to Create a Screen</h4>
+      <ol>
+        <li>Go to the <strong>Screen</strong> menu from the sidebar.</li>
+        <li>Click on <strong>Create Screen</strong>.</li>
+        <li>Select the <strong>Master Screen</strong> under which you want to create this Screen.</li>
+        <li>Enter a <strong>Screen Name</strong> (e.g., “Sales Trends”, “Customer Insights”).</li>
+        <li>Optionally, add a <strong>Description</strong> to explain the purpose of the Screen.</li>
+        <li>Click <strong>Save</strong> to create your Screen.</li>
+      </ol>
+
+      <h4 class="mt-4">✅ Tips</h4>
+      <ul>
+        <li>Use clear and descriptive names so your team can quickly identify the purpose.</li>
+        <li>You can create multiple Screens under one Master to organize different analyses.</li>
+        <li>Screens can later be customized with <strong>Charts</strong>, <strong>KPIs</strong>, and other insights.
+        </li>
+      </ul>
+
+      <div class="alert alert-info mt-3">
+        💡 Example: Under <strong>Sales Dashboard</strong> Master Screen, you can create Screens like
+        <em>“Regional Sales”</em>, <em>“Product Performance”</em>, and <em>“Customer Segmentation”</em>.
+      </div>
+    </div>
+
+    <div id="addCharts" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-bar-chart"></i> Charts in Elldy BI + DI</h2>
+      <p>Charts are the core of Elldy’s data visualization and analysis. With <strong>25+ chart types</strong>,
+        you can represent your data in the most meaningful way, making it easier to identify patterns,
+        compare values, and draw actionable insights.</p>
+
+      <h4>🎨 Supported Chart Types</h4>
+      <ul>
+        <li><strong>Comparison Charts:</strong> Bar, Stacked Bar, Grouped Bar, Column, Stacked Column, KPI Cards</li>
+        <li><strong>Distribution Charts:</strong> Histogram, Box Plot, Violin Plot</li>
+        <li><strong>Trend & Relationship Charts:</strong> Line, Area, Stacked Area, Scatter, Bubble, Heatmap</li>
+        <li><strong>Composition Charts:</strong> Pie, Donut, Funnel, Treemap, Sunburst</li>
+        <li><strong>Tabular & Advanced Views:</strong> Pivot Table, Sample Table, Gauge, Maps, Custom KPI Boards</li>
+      </ul>
+
+      <h4>⚡ How to Add a Chart</h4>
+      <ol>
+        <li><strong>Select X and Y Variables:</strong> Choose the dimension (X-axis) and measure (Y-axis) from your
+          dataset.</li>
+        <li><strong>Apply an Operation:</strong> Group By, Trend Analysis, Forecasting, Correlation, or Anomaly
+          Detection.</li>
+        <li><strong>Choose a Chart Type:</strong> Elldy suggests the most suitable chart types automatically.</li>
+        <li><strong>Render the Chart:</strong> Click <em>Apply</em> to generate your interactive chart.</li>
+      </ol>
+
+      <h4>🎯 Example</h4>
+      <p><strong>X:</strong> Region<br>
+        <strong>Y:</strong> Sales<br>
+        <strong>Operation:</strong> Group By<br>
+        <strong>Suggested Charts:</strong> Bar Chart, Pie Chart, Map View
+      </p>
+      <p>👉 Click <strong>Apply</strong> → Interactive chart is displayed in your Screen.</p>
+
+      <h4>🌟 Why Elldy Charts?</h4>
+      <ul>
+        <li>Smart Recommendations – Chart suggestions based on data type & operation.</li>
+        <li>Interactive Visuals – Zoom, drilldown, filter, and highlight.</li>
+        <li>Dynamic Updates – Charts refresh automatically as data changes.</li>
+        <li>Advanced Insights – Overlay KPIs, forecasts, anomalies, and moving averages directly on charts.</li>
+      </ul>
+
+      <p>✅ With <strong>Charts</strong>, Elldy turns raw data into interactive visual stories —
+        helping you understand, explain, and act on insights faster.</p>
+    </div>
+
+    <!-- Analysis Process Overview -->
+    <div id="analysisOverview" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-graph-up"></i> Analysis Process Overview in Elldy BI + DI</h2>
+      <p class="lead">Elldy makes data analysis simple, smart, and fast. Within <strong>5–10 seconds</strong>, you can
+        transform raw data into interactive visual insights.</p>
+
+      <h4>⚡ How Analysis Works</h4>
+      <ul>
+        <li><strong>Auto X & Y Selection:</strong> Elldy auto-detects categorical dimensions (X) and numeric measures
+          (Y).</li>
+        <li><strong>Choose an Operation:</strong> Apply Quick Stats, Grouping, Trends, Comparisons, Correlations, or AI
+          Insights.</li>
+        <li><strong>Select a Chart:</strong> Elldy recommends the best chart type for your operation.</li>
+        <li><strong>Confirm & Render:</strong> Instantly generate an interactive chart.</li>
+      </ul>
+
+      <h4>🎯 Example Workflow</h4>
+      <p>
+        Dataset: <strong>Sales Data</strong><br>
+        Auto Picks → X: Region, Y: Sales<br>
+        Operation → Group By<br>
+        Suggested Charts → Bar, Pie, Map<br>
+        Confirm → Chart rendered instantly.
+      </p>
+
+      <h4>🌟 Why Elldy Analysis?</h4>
+      <ul>
+        <li>Smart Auto Detection – No guesswork, just insights.</li>
+        <li>Wide Range of Operations – From basic stats to AI-driven insights.</li>
+        <li>Chart Suggestions – The right visual, every time.</li>
+        <li>Ultra-Fast Experience – Insights in seconds.</li>
+        <li>Seamless Workflow – Operations + Charts = 1 smooth process.</li>
+      </ul>
+    </div>
+
+    <!-- Add Steps Documentation -->
+    <div id="analysisSteps" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-journal-bookmark"></i> Add Steps Documentation (Operations Guide)
+      </h2>
+
+      <h4>🔹 General Workflow</h4>
+      <ul>
+        <li><strong>Select Dataset</strong> – Upload or choose your dataset.</li>
+        <li><strong>Choose Operation</strong> – From categories like Quick Stats, Comparative Analysis, Correlation
+          Analysis, Trend Analysis, AI Insights.</li>
+        <li><strong>Select Variables (X, Y)</strong> – Based on the operation’s requirement (numeric/categorical/date).
+        </li>
+        <li><strong>Select Chart Type</strong> – Recommended chart types are suggested for each operation.</li>
+        <li><strong>Run Analysis</strong> – View results in chart + table format.</li>
+      </ul>
+
+      <hr>
+
+      <h4>⚡ Quick Stats</h4>
+      <ol>
+        <li><b>Sum</b><br>
+          <i>Variables:</i> x, y (numeric)<br>
+          <i>Charts:</i> Bar, Column, Pie<br>
+          <i>Example:</i> Total sales per product category
+        </li>
+        <li><b>Count</b><br>
+          <i>Variables:</i> x, y (categorical/numeric)<br>
+          <i>Charts:</i> Bar, Column, Table<br>
+          <i>Example:</i> Count orders per region
+        </li>
+        <li><b>Mean</b><br>
+          <i>Variables:</i> x, y<br>
+          <i>Charts:</i> Bar, Line<br>
+          <i>Example:</i> Average sales per store
+        </li>
+        <li><b>Median</b><br>
+          <i>Variables:</i> x, y<br>
+          <i>Charts:</i> Bar, Table<br>
+          <i>Example:</i> Median salary per department
+        </li>
+        <li><b>Variance</b><br>
+          <i>Variables:</i> x, y<br>
+          <i>Charts:</i> Table, Line (with error bars)<br>
+          <i>Example:</i> Variance in monthly expenses
+        </li>
+        <li><b>Group Head Count</b><br>
+          <i>Variables:</i> x (categorical)<br>
+          <i>Charts:</i> Pie, Bar<br>
+          <i>Example:</i> Employees per department
+        </li>
+      </ol>
+
+      <hr>
+
+      <h4>📊 Comparative Analysis</h4>
+      <ol>
+        <li><b>Top N / Bottom N</b> – Example: Top 5 products by sales</li>
+        <li><b>% of Total</b> – Example: Market share % of each brand</li>
+        <li><b>Cumulative Sum (CUMSUM)</b> – Example: Running cumulative revenue over the year</li>
+      </ol>
+
+      <hr>
+
+      <h4>🔗 Correlation Analysis</h4>
+      <ol>
+        <li><b>Pearson Correlation</b> – Relationship between Ad Spend & Sales</li>
+        <li><b>Spearman Correlation</b> – Rank correlation between Satisfaction & Repeat Purchases</li>
+        <li><b>Kendall Correlation</b> – Agreement between two rating scales</li>
+        <li><b>Cramér’s V</b> – Association between Region and Product Preference</li>
+      </ol>
+
+      <hr>
+
+      <h4>📈 Trend Analysis</h4>
+      <ol>
+        <li><b>Moving Average</b> – Example: 7-day avg of visitors</li>
+        <li><b>Trend Break Detection</b> – Example: Detect sales drop</li>
+        <li><b>Time Series Forecast</b> – Example: Forecast next 6 months revenue</li>
+      </ol>
+
+      <hr>
+
+      <h4>🤖 AI Insights</h4>
+      <ol>
+        <li><b>Anomaly Detection</b> – Detect unusual spikes</li>
+        <li><b>Forecast Suggestions</b> – Auto forecast overlay</li>
+        <li><b>Correlation Warnings</b> – Highlight suspicious metric moves</li>
+        <li><b>Trend Direction Prediction</b> – Predict stock rise/fall</li>
+        <li><b>Seasonality Detection</b> – Identify seasonal sales spikes</li>
+        <li><b>Top Drivers / Influencers</b> – Features influencing churn</li>
+        <li><b>Productivity Predictions</b> – Predict employee productivity trends</li>
+        <li><b>Business Risk Warnings</b> – Alert risk of revenue drop</li>
+      </ol>
+    </div>
+
+
+
+
+    <!-- FlexiFilter Page -->
+    <div id="analysisFlexifilter" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-funnel"></i> FlexiFilter — User Guide</h2>
+      <p><strong>Elldy BI</strong> provides a FlexiFilter system that makes filtering datasets effortless and intuitive.
+        Instead of writing complex queries, you can use human-friendly expressions to filter rows by dates, numbers,
+        text values, and combined conditions — all from a single filter box.</p>
+
+      <h4 class="mt-4">1. Date Filters</h4>
+      <ul>
+        <li><strong>Single Year:</strong> <code>2022</code></li>
+        <li><strong>Month:</strong> <code>2023-07</code></li>
+        <li><strong>Exact Date:</strong> <code>2024-05-10</code></li>
+        <li><strong>Date Range:</strong> <code>2024-05-01 to 2024-05-31</code></li>
+        <li><strong>Year Range:</strong> <code>2022-01-01 to 2023-12-31</code></li>
+        <li><strong>Relative Dates:</strong> <code>this week</code>, <code>last month</code>, <code>this year</code>
+        </li>
+      </ul>
+
+      <h4 class="mt-4">2. Numeric Filters</h4>
+      <ul>
+        <li><code>> 1000</code> → Rows greater than 1000</li>
+        <li><code>< 500</code> → Rows less than 500</li>
+        <li><code>>= 100 and <= 500</code> → Range filter</li>
+        <li><code>sales > 50000</code> → Column-specific filter</li>
+      </ul>
+
+      <h4 class="mt-4">3. Text Filters</h4>
+      <ul>
+        <li><code>country == "India"</code></li>
+        <li><code>status != "Closed"</code></li>
+      </ul>
+
+      <h4 class="mt-4">4. Global Text Search</h4>
+      <ul>
+        <li><code>pending</code> → finds rows with pending</li>
+        <li><code>india || china</code> → matches India OR China</li>
+      </ul>
+
+      <h4 class="mt-4">5. Combined Filters</h4>
+      <ul>
+        <li><code>country == "India" and sales > 50000</code></li>
+        <li><code>status == "Pending" || status == "In Progress"</code></li>
+        <li><code>(status == "Pending" || status == "In Progress") and sales < 1000</code></li>
+      </ul>
+
+      <h4 class="mt-4">6. Tips & Notes</h4>
+      <ul>
+        <li>Dates follow <code>YYYY-MM-DD</code> format unless using relative keywords.</li>
+        <li>Strings with spaces must be quoted → <code>city == "New York"</code></li>
+        <li>Numeric + text filters can be combined.</li>
+        <li>Text matching is case-insensitive unless exact case is required.</li>
+      </ul>
+
+      <p class="mt-3"><strong>👉 With FlexiFilter, Elldy BI makes complex data filtering simple, powerful, and intuitive
+          for business users and analysts alike.</strong></p>
+    </div>
+
+    <!-- Quick Stats Page -->
+    <div id="quickStats" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-bar-chart-fill"></i> Quick Stats Operations in Elldy BI</h2>
+      <p class="lead">Quick Stats are the fastest way to generate insights from your dataset. Elldy automatically
+        identifies X (categorical variables) and Y (numeric measures) so you can apply instant calculations.</p>
+
+      <h4>1. Sum</h4>
+      <p><strong>Description:</strong> Calculates the total of a numeric column (Y) for each category (X).</p>
+      <p><strong>Example:</strong> X = Region, Y = Sales → Sum gives total sales per region.</p>
+
+      <h4>2. Count</h4>
+      <p><strong>Description:</strong> Counts how many records fall into each category (X).</p>
+      <p><strong>Example:</strong> X = Product Category → Count gives number of transactions per category.</p>
+
+      <h4>3. Mean (Average)</h4>
+      <p><strong>Description:</strong> Finds the average value of a numeric field (Y) for each category (X).</p>
+      <p><strong>Example:</strong> X = Product, Y = Profit → Mean shows average profit per product.</p>
+
+      <h4>4. Median</h4>
+      <p><strong>Description:</strong> Finds the middle value in your data distribution for each category.</p>
+      <p><strong>Example:</strong> X = City, Y = House Price → Median shows the central house price per city.</p>
+
+      <h4>5. Variance</h4>
+      <p><strong>Description:</strong> Measures the spread of values around the mean.</p>
+      <p><strong>Example:</strong> X = Department, Y = Employee Salary → Variance shows salary distribution difference
+        across departments.</p>
+
+      <h4>6. Group Head Count</h4>
+      <p><strong>Description:</strong> Calculates the total number of categories (X) selected (distinct groups).</p>
+      <p><strong>Example:</strong> X = Country → Group Head Count shows total number of unique countries in dataset.</p>
+
+      <div class="alert alert-info mt-3">
+        ✅ <strong>Best Practice:</strong>
+        <ul>
+          <li>Use <b>Sum/Mean</b> for financial or numeric measures.</li>
+          <li>Use <b>Count/Group Head Count</b> for frequency or distinct categories.</li>
+          <li>Use <b>Median/Variance</b> for robust statistical analysis.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-content d-none" id="grouping">
+      <h2 class="mb-3 text-primary">📘 Group Aggregation & Ranking – Operation Documentation</h2>
+
+      <!-- 1. Group By Sum -->
+      <div class="mb-4">
+        <h5>1. Group By Sum</h5>
+        <p><strong>Key:</strong> <code>group_by_sum</code></p>
+        <p><strong>Description:</strong> Aggregates numeric values by categories and calculates the total sum for each
+          group.</p>
+        <p><strong>How to Use:</strong></p>
+        <ul>
+          <li>Select a categorical variable (X).</li>
+          <li>Select a numeric variable (Y).</li>
+          <li>Choose <em>Group By Sum</em> from operations.</li>
+        </ul>
+        <p><strong>Example Use Case:</strong> Find the total sales per region or total expenses per department.</p>
+        <p><strong>Suitable Charts:</strong> Bar Chart, Column Chart, Treemap, Pie Chart.</p>
+      </div>
+
+      <!-- 2. Group By Mean -->
+      <div class="mb-4">
+        <h5>2. Group By Mean</h5>
+        <p><strong>Key:</strong> <code>group_by_mean</code></p>
+        <p><strong>Description:</strong> Calculates the average (mean) value for each category.</p>
+        <p><strong>How to Use:</strong></p>
+        <ul>
+          <li>Select X = Category (e.g., Department).</li>
+          <li>Select Y = Numeric value (e.g., Salary).</li>
+          <li>Apply Group By Mean.</li>
+        </ul>
+        <p><strong>Example Use Case:</strong> Find average salary per department or average order value per customer
+          type.</p>
+        <p><strong>Suitable Charts:</strong> Bar Chart, Column Chart, Box Plot.</p>
+      </div>
+
+      <!-- 3. Group By Count -->
+      <div class="mb-4">
+        <h5>3. Group By Count</h5>
+        <p><strong>Key:</strong> <code>group_by_count</code></p>
+        <p><strong>Description:</strong> Counts the number of records in each group.</p>
+        <p><strong>How to Use:</strong></p>
+        <ul>
+          <li>Select X = Category.</li>
+          <li>Select Y = Any field (numeric or categorical).</li>
+          <li>Apply Group By Count.</li>
+        </ul>
+        <p><strong>Example Use Case:</strong> Find number of orders per product category or number of employees per
+          department.</p>
+        <p><strong>Suitable Charts:</strong> Bar Chart, Pie Chart, Donut Chart.</p>
+      </div>
+
+      <!-- 4. Group By Min -->
+      <div class="mb-4">
+        <h5>4. Group By Min</h5>
+        <p><strong>Key:</strong> <code>group_by_min</code></p>
+        <p><strong>Description:</strong> Finds the minimum numeric value for each group.</p>
+        <p><strong>How to Use:</strong></p>
+        <ul>
+          <li>Select X = Category.</li>
+          <li>Select Y = Numeric value.</li>
+          <li>Apply Group By Min.</li>
+        </ul>
+        <p><strong>Example Use Case:</strong> Find minimum order amount per region or lowest exam score per class.</p>
+        <p><strong>Suitable Charts:</strong> Bar Chart, Column Chart.</p>
+      </div>
+
+      <!-- 5. Group By Max -->
+      <div class="mb-4">
+        <h5>5. Group By Max</h5>
+        <p><strong>Key:</strong> <code>group_by_max</code></p>
+        <p><strong>Description:</strong> Finds the maximum numeric value for each group.</p>
+        <p><strong>How to Use:</strong></p>
+        <ul>
+          <li>Select X = Category.</li>
+          <li>Select Y = Numeric value.</li>
+          <li>Apply Group By Max.</li>
+        </ul>
+        <p><strong>Example Use Case:</strong> Find highest sales per salesperson or maximum order size per region.</p>
+        <p><strong>Suitable Charts:</strong> Bar Chart, Column Chart.</p>
+      </div>
+
+      <!-- 6. Group By Median -->
+      <div class="mb-4">
+        <h5>6. Group By Median</h5>
+        <p><strong>Key:</strong> <code>group_by_median</code></p>
+        <p><strong>Description:</strong> Calculates the median value for each group (middle value, less sensitive to
+          outliers than mean).</p>
+        <p><strong>How to Use:</strong></p>
+        <ul>
+          <li>Select X = Category.</li>
+          <li>Select Y = Numeric value.</li>
+          <li>Apply Group By Median.</li>
+        </ul>
+        <p><strong>Example Use Case:</strong> Find median salary per department or median delivery time per courier
+          service.</p>
+        <p><strong>Suitable Charts:</strong> Bar Chart, Box Plot.</p>
+      </div>
+    </div>
+
+    <div id="trendAnalysis" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-graph-up"></i> 📊 Trend Analysis — Documentation</h2>
+      <p class="lead">
+        Trend Analysis in <strong>Elldy BI</strong> helps you uncover hidden patterns, forecast the future,
+        and detect important shifts in your data. These operations are automatically applied to time-series data
+        (datasets with a date or time field).
+      </p>
+
+      <!-- Moving Average -->
+      <div class="mb-4">
+        <h4>1. Moving Average</h4>
+        <p><strong>Key:</strong> <code>moving_avg</code></p>
+        <p><strong>Description:</strong> Smooths short-term fluctuations in your time series by calculating the average
+          over a rolling window.</p>
+        <p><strong>Defaults:</strong></p>
+        <ul>
+          <li>If no window size is provided → <strong>default = 3</strong> (last 3 periods).</li>
+          <li>User can customize (e.g., 5-day, 7-day, 30-day).</li>
+        </ul>
+        <p><strong>Example Use Cases:</strong></p>
+        <ul>
+          <li>3-day moving average of daily website visitors.</li>
+          <li>7-day moving average of sales revenue to remove daily noise.</li>
+          <li>30-day average to observe long-term seasonal behavior.</li>
+        </ul>
+        <p><strong>Suitable Charts:</strong> Line Chart, Area Chart</p>
+      </div>
+
+      <!-- Trend Break Detection -->
+      <div class="mb-4">
+        <h4>2. Trend Break Detection</h4>
+        <p><strong>Key:</strong> <code>trend_break</code></p>
+        <p><strong>Description:</strong> Detects sudden changes or breaks in your data trend. Highlights when a pattern
+          shifts significantly.</p>
+        <p><strong>Defaults:</strong></p>
+        <ul>
+          <li>Works automatically on date + y variable.</li>
+          <li>No extra parameters needed.</li>
+        </ul>
+        <p><strong>Example Use Cases:</strong></p>
+        <ul>
+          <li>Detect sudden traffic spikes on a website (viral content).</li>
+          <li>Identify sales drop after a product recall.</li>
+          <li>Spot demand surges during promotions.</li>
+        </ul>
+        <p><strong>Suitable Charts:</strong> Line Chart with highlighted breakpoints, Scatter Plot (highlight anomalies)
+        </p>
+      </div>
+
+      <!-- Time Series Forecast -->
+      <div class="mb-4">
+        <h4>3. Time Series Forecast</h4>
+        <p><strong>Key:</strong> <code>forecast_prophet</code></p>
+        <p><strong>Description:</strong> Predicts future values using Facebook Prophet forecasting model based on
+          historical data.</p>
+        <p><strong>Defaults:</strong></p>
+        <ul>
+          <li>If no forecast horizon is given → <strong>default = 3</strong> future periods (days, weeks, or months).
+          </li>
+          <li>User can override (e.g., forecast next 6 months).</li>
+        </ul>
+        <p><strong>Example Use Cases:</strong></p>
+        <ul>
+          <li>Forecast next 3 months of sales based on past 12 months.</li>
+          <li>Predict website visitors for campaign planning.</li>
+          <li>Estimate energy demand for next quarter.</li>
+        </ul>
+        <p><strong>Suitable Charts:</strong> Line Chart (historical vs. forecast), Area Chart (shaded forecast region)
+        </p>
+      </div>
+
+      <!-- Summary Table -->
+      <h4>🔎 Summary of Defaults</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Default Applied</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Moving Average</td>
+            <td>Window = 3 (periods)</td>
+          </tr>
+          <tr>
+            <td>Trend Break</td>
+            <td>Auto-detected, no parameters needed</td>
+          </tr>
+          <tr>
+            <td>Time Series Forecast</td>
+            <td>Forecast Horizon = 3 periods</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="mt-3"><strong>⚡ Tip:</strong> These defaults ensure quick insights without manual setup.
+        Advanced users can still customize parameters for deeper analysis.</p>
+    </div>
+
+    <div id="comparativeAnalysis" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-bar-chart"></i> 📊 Comparative Operations</h2>
+      <p class="lead">These operations let you explore cumulative trends, contributions, top/bottom performers,
+        averages, and comparative insights beyond basic statistics.</p>
+
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">
+          <h5>1. Cumulative Sum (<code>cumsum</code>)</h5>
+          <p>Adds values sequentially to show a running total.</p>
+          <strong>How to Use:</strong>
+          <ul>
+            <li>Select <b>X</b> = Time-series field (e.g., Date, Month).</li>
+            <li>Select <b>Y</b> = Numeric field (e.g., Sales, Expenses).</li>
+            <li>Apply <b>Cumulative Sum</b> to compute progressive totals.</li>
+          </ul>
+          <strong>Example Use Cases:</strong>
+          <ul>
+            <li>Track cumulative revenue across months.</li>
+            <li>Monitor total expenses accumulated per quarter.</li>
+          </ul>
+          <strong>Suitable Charts:</strong> Line, Area
+        </li>
+
+        <li class="list-group-item">
+          <h5>2. % of Total (<code>percent_total</code>)</h5>
+          <p>Shows each group’s share as a percentage of the overall total.</p>
+          <strong>How to Use:</strong>
+          <ul>
+            <li>Select <b>X</b> = Category (e.g., Region, Product).</li>
+            <li>Select <b>Y</b> = Numeric field (e.g., Sales, Profit).</li>
+            <li>Apply <b>% of Total</b>.</li>
+          </ul>
+          <strong>Example Use Cases:</strong>
+          <ul>
+            <li>Show sales contribution per region.</li>
+            <li>Analyze market share per brand.</li>
+          </ul>
+          <strong>Suitable Charts:</strong> Pie, Donut, 100% Stacked Bar
+        </li>
+
+        <li class="list-group-item">
+          <h5>3. Top Performers (Top N) (<code>top_n</code>)</h5>
+          <p>Displays the top N categories based on a chosen metric.</p>
+          <strong>How to Use:</strong>
+          <ul>
+            <li>Select <b>X</b> = Category (e.g., Product, Store).</li>
+            <li>Select <b>Y</b> = Numeric value (e.g., Sales, Revenue).</li>
+            <li>Enter <b>N</b> (e.g., Top 5).</li>
+          </ul>
+          <strong>Example Use Cases:</strong>
+          <ul>
+            <li>Identify top 5 best-selling products.</li>
+            <li>Find top 3 branches with highest revenue.</li>
+          </ul>
+          <strong>Suitable Charts:</strong> Bar, Column, Treemap
+        </li>
+
+        <li class="list-group-item">
+          <h5>4. Bottom Performers (Bottom N) (<code>bottom_n</code>)</h5>
+          <p>Displays the lowest N categories based on a chosen metric.</p>
+          <strong>How to Use:</strong>
+          <ul>
+            <li>Select <b>X</b> = Category.</li>
+            <li>Select <b>Y</b> = Numeric value.</li>
+            <li>Enter <b>N</b> (e.g., Bottom 3).</li>
+          </ul>
+          <strong>Example Use Cases:</strong>
+          <ul>
+            <li>Find bottom 3 least profitable products.</li>
+            <li>Identify slowest-selling categories.</li>
+          </ul>
+          <strong>Suitable Charts:</strong> Bar, Column
+        </li>
+
+        <li class="list-group-item">
+          <h5>5. Running Average (<code>running_avg</code>)</h5>
+          <p>Calculates a moving average over time or sequence to smooth fluctuations.</p>
+          <strong>How to Use:</strong>
+          <ul>
+            <li>Select <b>X</b> = Time or Sequence field.</li>
+            <li>Select <b>Y</b> = Numeric value.</li>
+            <li>Apply <b>Running Average</b> (e.g., 7-day average).</li>
+          </ul>
+          <strong>Example Use Cases:</strong>
+          <ul>
+            <li>Track 7-day running average of website visitors.</li>
+            <li>Smooth monthly sales trends.</li>
+          </ul>
+          <strong>Suitable Charts:</strong> Line, Area
+        </li>
+
+        <li class="list-group-item">
+          <h5>6. Side-by-Side Comparison (<code>side_by_side</code>)</h5>
+          <p>Compare two categories across the same numeric measure.</p>
+          <strong>How to Use:</strong>
+          <ul>
+            <li>Select <b>X1</b> = First Category (e.g., Region).</li>
+            <li>Select <b>X2</b> = Second Category (e.g., Year).</li>
+            <li>Select <b>Y</b> = Numeric value (e.g., Sales).</li>
+          </ul>
+          <strong>Example Use Cases:</strong>
+          <ul>
+            <li>Compare sales across regions between 2023 vs 2024.</li>
+            <li>Compare expenses by department across two years.</li>
+          </ul>
+          <strong>Suitable Charts:</strong> Grouped Bar, Clustered Column
+        </li>
+
+        <li class="list-group-item">
+          <h5>7. Contribution to Total (<code>contribution_total</code>)</h5>
+          <p>Shows how each sub-category contributes to its group’s total.</p>
+          <strong>How to Use:</strong>
+          <ul>
+            <li>Select <b>X</b> = Category (e.g., Product).</li>
+            <li>Select <b>Y</b> = Numeric value.</li>
+            <li>Apply <b>Contribution to Total</b>.</li>
+          </ul>
+          <strong>Example Use Cases:</strong>
+          <ul>
+            <li>Analyze product contribution within each region.</li>
+            <li>Show department contribution to company expenses.</li>
+          </ul>
+          <strong>Suitable Charts:</strong> Stacked Bar, Stacked Column
+        </li>
+
+        <li class="list-group-item">
+          <h5>8. Change Over Period (<code>change_period</code>)</h5>
+          <p>Calculates the difference or growth rate between time periods.</p>
+          <strong>How to Use:</strong>
+          <ul>
+            <li>Select <b>X</b> = Date/Period field.</li>
+            <li>Select <b>Y</b> = Numeric value.</li>
+            <li>Apply <b>Change Over Period</b>.</li>
+          </ul>
+          <strong>Example Use Cases:</strong>
+          <ul>
+            <li>Show sales growth from Jan to Feb.</li>
+            <li>Calculate quarterly expense changes.</li>
+          </ul>
+          <strong>Suitable Charts:</strong> Line, Bar (Growth % per period)
+        </li>
+      </ol>
+    </div>
+
+    <!-- 📘 Correlation Analysis -->
+    <div id="correlationAnalysis" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-diagram-3"></i> Correlation Analysis</h2>
+      <p class="lead">
+        Correlation Analysis in <strong>Elldy BI</strong> measures the strength and direction of relationships
+        between two variables. It helps identify whether variables move together, oppositely, or independently.
+      </p>
+
+      <h4 class="mt-4">🔹 Supported Methods</h4>
+
+      <div class="mb-4">
+        <h5>1. Pearson Correlation <code>(pearson)</code></h5>
+        <p><strong>Definition:</strong> Measures the <em>linear relationship</em> between two numeric variables.</p>
+        <p><strong>Output Range:</strong> -1 (perfect negative) → 0 (none) → +1 (perfect positive)</p>
+        <p><strong>Best For:</strong> Continuous data with linear trends.</p>
+        <p><strong>Example:</strong> Height vs. Weight</p>
+        <p><strong>Use Case:</strong> If Pearson = <code>0.85</code>, height and weight strongly increase together.</p>
+        <p><strong>Suitable Charts:</strong> Scatter Plot, Heatmap</p>
+      </div>
+
+      <div class="mb-4">
+        <h5>2. Spearman Correlation <code>(spearman)</code></h5>
+        <p><strong>Definition:</strong> Rank-based correlation for monotonic (increasing/decreasing) relationships.</p>
+        <p><strong>Output Range:</strong> -1 to +1</p>
+        <p><strong>Best For:</strong> Non-linear but monotonic data, ordinal variables.</p>
+        <p><strong>Example:</strong> Exam Rank vs. Performance Score</p>
+        <p><strong>Use Case:</strong> Spearman = <code>0.90</code> → higher ranks strongly relate to better scores.</p>
+        <p><strong>Suitable Charts:</strong> Scatter Plot, Line Chart</p>
+      </div>
+
+      <div class="mb-4">
+        <h5>3. Kendall Correlation <code>(kendall)</code></h5>
+        <p><strong>Definition:</strong> Measures concordance of observation pairs (robust for small datasets).</p>
+        <p><strong>Output Range:</strong> -1 to +1</p>
+        <p><strong>Best For:</strong> Ordinal or ranked data, smaller datasets.</p>
+        <p><strong>Example:</strong> Satisfaction Ranking vs. Loyalty Index</p>
+        <p><strong>Use Case:</strong> Kendall = <code>0.65</code> → moderate positive agreement between rankings.</p>
+        <p><strong>Suitable Charts:</strong> Heatmap, Correlation Matrix</p>
+      </div>
+
+      <div class="mb-4">
+        <h5>4. Cramér’s V (Categorical) <code>(cramers_v)</code></h5>
+        <p><strong>Definition:</strong> Measures association strength between two categorical variables (via
+          Chi-Square).</p>
+        <p><strong>Output Range:</strong> 0 (none) → 1 (strong)</p>
+        <p><strong>Best For:</strong> Categorical data like gender, product type, or region.</p>
+        <p><strong>Example:</strong> Gender vs. Product Preference</p>
+        <p><strong>Use Case:</strong> Cramér’s V = <code>0.40</code> → moderate association between gender & preference.
+        </p>
+        <p><strong>Suitable Charts:</strong> Heatmap, Bar Chart (grouped)</p>
+      </div>
+
+      <h4 class="mt-4">🔹 When to Use Each</h4>
+      <table class="table table-bordered table-striped">
+        <thead class="table-light">
+          <tr>
+            <th>Method</th>
+            <th>Data Type</th>
+            <th>Best Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pearson</strong></td>
+            <td>Numeric</td>
+            <td>Linear relationships (e.g., Age vs. Income)</td>
+          </tr>
+          <tr>
+            <td><strong>Spearman</strong></td>
+            <td>Numeric / Ordinal</td>
+            <td>Monotonic trends (e.g., Rank vs. Performance)</td>
+          </tr>
+          <tr>
+            <td><strong>Kendall</strong></td>
+            <td>Ordinal</td>
+            <td>Small datasets, robust rank comparisons</td>
+          </tr>
+          <tr>
+            <td><strong>Cramér’s V</strong></td>
+            <td>Categorical</td>
+            <td>Associations between categorical variables (e.g., Gender vs. Preference)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="alert alert-info mt-3">
+        ✅ <strong>Tip:</strong> Choose the method based on data type — numeric, ordinal, or categorical.
+        Elldy BI automatically applies the most suitable correlation method.
+      </div>
+    </div>
+
+    <div id="aiInsights" class="page-content d-none">
+      <h2 class="mb-3 text-primary"><i class="bi bi-cpu"></i> 📘 AI Insights — Documentation</h2>
+      <p class="lead">
+        Artificial Intelligence (AI) powered insights go beyond descriptive and diagnostic analysis, enabling
+        <strong>predictive and prescriptive analytics</strong>. These operations automatically detect hidden patterns,
+        anomalies, and risks, helping you make smarter business decisions.
+      </p>
+
+      <h4>1. 🔍 Anomaly Detection</h4>
+      <p><strong>Key:</strong> anomaly_detection<br>
+        <strong>Required Fields:</strong> y (1 variable)<br>
+        <strong>Description:</strong> Detects unusual spikes, drops, or irregular patterns in your data series. Useful
+        for
+        quality monitoring, fraud detection, and KPI anomalies.
+      </p>
+      <p><strong>Example:</strong><br>
+        Variable: Revenue<br>
+        Insight: "Revenue spiked 80% higher than normal on July 15 — potential campaign impact."<br>
+        <em>Visualization:</em> Line chart with anomalies highlighted in red.
+      </p>
+
+      <h4>2. 📈 Forecast Suggestions</h4>
+      <p><strong>Key:</strong> forecast_suggestions<br>
+        <strong>Required Fields:</strong> date, y<br>
+        <strong>Description:</strong> Provides predictive forecasts with confidence intervals for future planning.
+      </p>
+      <p><strong>Example:</strong><br>
+        Variables: Date, Sales<br>
+        Insight: "Sales are projected to grow 12% over the next 3 months."<br>
+        <em>Visualization:</em> Forecast line with shaded confidence interval.
+      </p>
+
+      <h4>3. ⚠️ Correlation Warnings</h4>
+      <p><strong>Key:</strong> ai_correlation_alerts<br>
+        <strong>Required Fields:</strong> y_list (2–5 variables)<br>
+        <strong>Description:</strong> AI highlights unexpected correlations that may affect outcomes.
+      </p>
+      <p><strong>Example:</strong><br>
+        Variables: Marketing Spend, Leads, Sales<br>
+        Insight: "Strong correlation (0.82) between Marketing Spend and Sales detected."<br>
+        <em>Visualization:</em> Correlation heatmap.
+      </p>
+
+      <h4>4. 🧭 Trend Direction Prediction</h4>
+      <p><strong>Key:</strong> trend_direction<br>
+        <strong>Required Fields:</strong> date, y<br>
+        <strong>Description:</strong> Predicts whether your metric will trend upward, downward, or stay stable.
+      </p>
+      <p><strong>Example:</strong><br>
+        Variable: Customer Retention<br>
+        Insight: "Retention rates are predicted to decline by 5% in the next quarter."<br>
+        <em>Visualization:</em> Line chart with AI-predicted arrows.
+      </p>
+
+      <h4>5. 📊 Seasonality Detection</h4>
+      <p><strong>Key:</strong> seasonality_detection<br>
+        <strong>Required Fields:</strong> date, y<br>
+        <strong>Description:</strong> Identifies repeating cycles (weekly, monthly, yearly).
+      </p>
+      <p><strong>Example:</strong><br>
+        Variable: E-commerce Orders<br>
+        Insight: "Order volume peaks every Friday and dips on Mondays."<br>
+        <em>Visualization:</em> Seasonal decomposition plot.
+      </p>
+
+      <h4>6. 🚀 Top Drivers / Influencers</h4>
+      <p><strong>Key:</strong> top_drivers<br>
+        <strong>Required Fields:</strong> target, x_list<br>
+        <strong>Description:</strong> Detects which features have the strongest impact on outcomes.
+      </p>
+      <p><strong>Example:</strong><br>
+        Target: Profit<br>
+        Features: Marketing Spend, Discount, Customer Visits<br>
+        Insight: "Profit is most influenced by Customer Visits (35%), followed by Discount (25%)."<br>
+        <em>Visualization:</em> Bar chart ranking top drivers.
+      </p>
+
+      <h4>7. ⚡ Productivity Improvement Predictions</h4>
+      <p><strong>Key:</strong> productivity_forecast<br>
+        <strong>Required Fields:</strong> date, y<br>
+        <strong>Description:</strong> Predicts efficiency changes over time for workforce or operations.
+      </p>
+      <p><strong>Example:</strong><br>
+        Variable: Units Produced per Hour<br>
+        Insight: "Productivity expected to improve by 8% in the next 2 weeks."<br>
+        <em>Visualization:</em> Forecast curve with improvement markers.
+      </p>
+
+      <h4>8. 🛑 Business Risk Warnings</h4>
+      <p><strong>Key:</strong> business_risk_alerts<br>
+        <strong>Required Fields:</strong> date, y<br>
+        <strong>Description:</strong> AI flags risks like sales declines, bottlenecks, or stockouts.
+      </p>
+      <p><strong>Example:</strong><br>
+        Variable: Inventory Levels<br>
+        Insight: "Inventory dropping below safety threshold by next month — risk of stockouts."<br>
+        <em>Visualization:</em> Line chart with red risk zones.
+      </p>
+
+      <div class="alert alert-success mt-3">
+        ✅ These AI Insights require minimal setup — Elldy BI automatically selects the right models and thresholds for
+        you.
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- You can keep adding the rest: viewBasket, importDataset, viewDataset, etc. -->
   </div>
-</footer>
 
-<!-- Footer Links Hover Effect -->
-<style>
-  .footer-links li {
-    margin-bottom: 0.6rem;
-  }
-  .footer-links a {
-    color: hsla(182, 100%, 70%, 0.75);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  .footer-links a:hover {
-    color: #ffffff;
-  }
-</style>
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    // Sidebar navigation logic
+    const navLinks = document.querySelectorAll('.sidebar .nav-link[data-content]');
+    const pages = document.querySelectorAll('.page-content');
 
-
-
-
-
-    <!-- JS Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        pages.forEach(p => p.classList.add('d-none'));
+        const target = document.getElementById(link.getAttribute('data-content'));
+        if (target) target.classList.remove('d-none');
+      });
+    });
+  </script>
 </body>
 
 </html>
